@@ -1,3 +1,4 @@
+using AssignmentHub.Application.Academics.Services;
 using AssignmentHub.Application.Assignments.Dtos;
 using AssignmentHub.Application.Assignments.Services;
 using AssignmentHub.Application.Common.Interfaces;
@@ -16,17 +17,20 @@ public class AssignmentsController : ControllerBase
 {
     private readonly IAssignmentService _assignmentService;
     private readonly ISubmissionService _submissionService;
+    private readonly IClassSubjectService _classSubjectService;
     private readonly ICurrentUserService _currentUserService;
     private readonly IAuthorizationService _authorizationService;
 
     public AssignmentsController(
         IAssignmentService assignmentService,
         ISubmissionService submissionService,
+        IClassSubjectService classSubjectService,
         ICurrentUserService currentUserService,
         IAuthorizationService authorizationService)
     {
         _assignmentService = assignmentService;
         _submissionService = submissionService;
+        _classSubjectService = classSubjectService;
         _currentUserService = currentUserService;
         _authorizationService = authorizationService;
     }
@@ -35,6 +39,17 @@ public class AssignmentsController : ControllerBase
     public async Task<IActionResult> GetMine([FromQuery] PaginationParams pagination, CancellationToken cancellationToken)
     {
         return Ok(await _assignmentService.GetAllForTeacherAsync(_currentUserService.UserId, pagination, cancellationToken));
+    }
+
+    /// <summary>
+    /// The class/subject pairs this teacher is assigned to teach — used to populate the "Class"
+    /// picker when creating an assignment. A Teacher has no access to the Admin-only
+    /// GET /api/classes, so the create-assignment form needs a teacher-scoped source for this data.
+    /// </summary>
+    [HttpGet("class-subjects")]
+    public async Task<IActionResult> GetMyClassSubjects(CancellationToken cancellationToken)
+    {
+        return Ok(await _classSubjectService.GetForTeacherAsync(_currentUserService.UserId, cancellationToken));
     }
 
     [HttpGet("{id:guid}")]

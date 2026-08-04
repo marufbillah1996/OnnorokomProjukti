@@ -98,6 +98,18 @@ public class ClassSubjectService : IClassSubjectService
         return entities.Select(x => x.ToDto()).ToList();
     }
 
+    public async Task<IReadOnlyList<ClassSubjectDto>> GetForTeacherAsync(Guid teacherId, CancellationToken cancellationToken = default)
+    {
+        var entities = await _classSubjectRepository.Query()
+            .Include(x => x.Class)
+            .Include(x => x.Subject)
+            .Include(x => x.Teacher)
+            .Where(x => x.TeacherId == teacherId)
+            .ToListAsync(cancellationToken);
+
+        return entities.Select(x => x.ToDto()).ToList();
+    }
+
     public async Task EnrollStudentAsync(Guid classId, Guid studentId, CancellationToken cancellationToken = default)
     {
         _ = await _classRepository.GetByIdAsync(classId, cancellationToken)

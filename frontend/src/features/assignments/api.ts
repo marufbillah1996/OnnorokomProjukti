@@ -1,4 +1,5 @@
 import { apiClient } from "@/shared/lib/api-client";
+import type { ClassSubjectDto } from "@/features/academics/types";
 import type { Paginated, PaginationQuery } from "@/shared/types/paginated";
 import type { AssignmentDto, CreateAssignmentRequest, UpdateAssignmentRequest } from "./types";
 
@@ -31,6 +32,16 @@ export async function deleteAssignment(id: string): Promise<void> {
 /** PUT /assignments/{id}/publish — moves an assignment from Draft to Published. No request body. */
 export async function publishAssignment(id: string): Promise<AssignmentDto> {
   const { data } = await apiClient.put<AssignmentDto>(`/assignments/${id}/publish`);
+  return data;
+}
+
+/**
+ * GET /assignments/class-subjects — the class/subject pairs the signed-in teacher is assigned
+ * to teach. Backs the "Class" picker on the create-assignment form — a Teacher has no access to
+ * the Admin-only GET /classes, so this teacher-scoped endpoint is the only valid source for it.
+ */
+export async function getMyClassSubjects(): Promise<ClassSubjectDto[]> {
+  const { data } = await apiClient.get<ClassSubjectDto[]>("/assignments/class-subjects");
   return data;
 }
 

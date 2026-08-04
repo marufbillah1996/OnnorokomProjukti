@@ -8,6 +8,7 @@ import {
   getAdminAssignments,
   getAssignment,
   getMyAssignments,
+  getMyClassSubjects,
   getPublishedAssignments,
   getStudentAssignment,
   publishAssignment,
@@ -81,6 +82,14 @@ export function usePublishedAssignments(query: PaginationQuery) {
   return useQuery({
     queryKey: ["assignments", "published", query],
     queryFn: () => getPublishedAssignments(query),
+  });
+}
+
+/** The signed-in teacher's own class/subject pairs — backs the create-assignment "Class" picker. */
+export function useMyClassSubjects() {
+  return useQuery({
+    queryKey: ["assignments", "my-class-subjects"],
+    queryFn: () => getMyClassSubjects(),
   });
 }
 

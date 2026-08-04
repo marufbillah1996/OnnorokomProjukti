@@ -65,7 +65,7 @@ export function ToastListener() {
   if (!toast) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 z-[60] max-w-sm rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground shadow-xl">
+    <div className="fixed bottom-4 right-4 z-60 max-w-sm rounded-lg border border-border bg-surface px-4 py-3 text-sm text-foreground shadow-xl">
       {toast}
     </div>
   );

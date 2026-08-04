@@ -1,14 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, type Resolver } from "react-hook-form";
-import { useClasses, useClassSubjects } from "@/features/academics/hooks";
 import { Button } from "@/shared/components/ui/Button";
 import { Card, CardBody, CardHeader, CardTitle } from "@/shared/components/ui/Card";
 import { Input, Select, Textarea } from "@/shared/components/ui/Input";
 import type { ApiError } from "@/shared/types/api-error";
-import { useCreateAssignment, useUpdateAssignment } from "../hooks";
+import { useCreateAssignment, useMyClassSubjects, useUpdateAssignment } from "../hooks";
 import {
   createAssignmentSchema,
   updateAssignmentSchema,
@@ -52,26 +50,18 @@ export function AssignmentFormWizard({ assignment, onSuccess }: AssignmentFormWi
   const updateAssignmentMutation = useUpdateAssignment();
   const activeMutation = isEdit ? updateAssignmentMutation : createAssignmentMutation;
 
-  // Two-step Class -> Subject picker (create only). There is no single "class-subjects I teach"
-  // endpoint, so we list classes, then list that class's subject rows (each already carrying the
-  // teacher assigned to it) once one is picked — simplest UX for a secondary concern.
-  const [selectedClassId, setSelectedClassId] = useState("");
-  const { data: classesPage, isLoading: isLoadingClasses } = useClasses({ page: 1, pageSize: 100 });
-  const { data: classSubjects, isLoading: isLoadingClassSubjects } = useClassSubjects(selectedClassId);
+  // Class/subject picker (create only) — sourced from the teacher-scoped
+  // GET /assignments/class-subjects, since a Teacher has no access to the Admin-only class list.
+  const { data: classSubjects, isLoading: isLoadingClassSubjects } = useMyClassSubjects();
 
-  const classOptions = (classesPage?.items ?? []).map((klass) => ({
-    value: klass.id,
-    label: klass.name,
-  }));
   const classSubjectOptions = (classSubjects ?? []).map((classSubject) => ({
     value: classSubject.id,
-    label: `${classSubject.subjectName} — ${classSubject.teacherName}`,
+    label: `${classSubject.className} — ${classSubject.subjectName}`,
   }));
 
   const {
     register,
     handleSubmit,
-    setValue,
     formState: { errors },
   } = useForm<AssignmentFormValues>({
     // Cast needed because the two branches resolve to different (subset) shapes — the resolver
@@ -160,32 +150,20 @@ export function AssignmentFormWizard({ assignment, onSuccess }: AssignmentFormWi
           </div>
 
           {!isEdit && (
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <Select
-                label="Class"
-                options={classOptions}
-                placeholder={isLoadingClasses ? "Loading classes…" : "Select a class"}
-                value={selectedClassId}
-                onChange={(event) => {
-                  setSelectedClassId(event.target.value);
-                  setValue("classSubjectId", "");
-                }}
-              />
-              <Select
-                label="Subject"
-                options={classSubjectOptions}
-                placeholder={
-                  !selectedClassId
-                    ? "Select a class first"
-                    : isLoadingClassSubjects
-                      ? "Loading subjects…"
-                      : "Select a subject"
-                }
-                disabled={!selectedClassId}
-                error={errors.classSubjectId?.message}
-                {...register("classSubjectId")}
-              />
-            </div>
+            <Select
+              label="Class / Subject"
+              options={classSubjectOptions}
+              placeholder={
+                isLoadingClassSubjects
+                  ? "Loading your classes…"
+                  : classSubjectOptions.length === 0
+                    ? "You are not assigned to any class/subject yet"
+                    : "Select a class and subject"
+              }
+              disabled={isLoadingClassSubjects || classSubjectOptions.length === 0}
+              error={errors.classSubjectId?.message}
+              {...register("classSubjectId")}
+            />
           )}
 
           {activeMutation.isError && (
