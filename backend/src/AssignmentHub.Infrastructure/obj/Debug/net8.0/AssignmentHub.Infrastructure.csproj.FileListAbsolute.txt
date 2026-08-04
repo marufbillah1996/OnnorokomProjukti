@@ -17,3 +17,4 @@ E:\OnnorokomProjukti\backend\src\AssignmentHub.Infrastructure\obj\Debug\net8.0\r
 E:\OnnorokomProjukti\backend\src\AssignmentHub.Infrastructure\obj\Debug\net8.0\AssignmentHub.Infrastructure.pdb
 E:\OnnorokomProjukti\backend\src\AssignmentHub.Infrastructure\obj\Debug\net8.0\AssignmentHub.Infrastructure.genruntimeconfig.cache
 E:\OnnorokomProjukti\backend\src\AssignmentHub.Infrastructure\obj\Debug\net8.0\ref\AssignmentHub.Infrastructure.dll
+E:\OnnorokomProjukti\backend\src\AssignmentHub.Infrastructure\obj\Debug\net8.0\AssignmentHub.Infrastructure.sourcelink.json

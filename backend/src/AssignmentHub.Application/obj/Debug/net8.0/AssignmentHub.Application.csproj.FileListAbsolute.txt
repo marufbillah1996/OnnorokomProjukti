@@ -13,3 +13,4 @@ E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\obj\Debug\net8.0\Assi
 E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\obj\Debug\net8.0\refint\AssignmentHub.Application.dll
 E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\obj\Debug\net8.0\AssignmentHub.Application.pdb
 E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\obj\Debug\net8.0\ref\AssignmentHub.Application.dll
+E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\obj\Debug\net8.0\AssignmentHub.Application.sourcelink.json

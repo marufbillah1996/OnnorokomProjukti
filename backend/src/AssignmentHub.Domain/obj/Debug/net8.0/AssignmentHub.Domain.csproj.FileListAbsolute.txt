@@ -9,3 +9,4 @@ E:\OnnorokomProjukti\backend\src\AssignmentHub.Domain\obj\Debug\net8.0\Assignmen
 E:\OnnorokomProjukti\backend\src\AssignmentHub.Domain\obj\Debug\net8.0\refint\AssignmentHub.Domain.dll
 E:\OnnorokomProjukti\backend\src\AssignmentHub.Domain\obj\Debug\net8.0\AssignmentHub.Domain.pdb
 E:\OnnorokomProjukti\backend\src\AssignmentHub.Domain\obj\Debug\net8.0\ref\AssignmentHub.Domain.dll
+E:\OnnorokomProjukti\backend\src\AssignmentHub.Domain\obj\Debug\net8.0\AssignmentHub.Domain.sourcelink.json

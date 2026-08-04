@@ -8,7 +8,6 @@ E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\Assi
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\AssignmentHub.UnitTests.runtimeconfig.json
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\AssignmentHub.UnitTests.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\AssignmentHub.UnitTests.pdb
-E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\AutoMapper.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\Castle.Core.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\FluentAssertions.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\FluentValidation.dll
@@ -24,7 +23,6 @@ E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\Micr
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
-E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
@@ -41,7 +39,6 @@ E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\Newt
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\Npgsql.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\NuGet.Frameworks.dll
-E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\System.Formats.Asn1.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\xunit.abstractions.dll
@@ -130,3 +127,7 @@ E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\obj\Debug\net8.0\refi
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\obj\Debug\net8.0\AssignmentHub.UnitTests.pdb
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\obj\Debug\net8.0\AssignmentHub.UnitTests.genruntimeconfig.cache
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\obj\Debug\net8.0\ref\AssignmentHub.UnitTests.dll
+E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\obj\Debug\net8.0\AssignmentHub.UnitTests.sourcelink.json
+E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\MockQueryable.Core.dll
+E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\MockQueryable.EntityFrameworkCore.dll
+E:\OnnorokomProjukti\backend\tests\AssignmentHub.UnitTests\bin\Debug\net8.0\MockQueryable.Moq.dll

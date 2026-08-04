@@ -298,8 +298,6 @@ E:\OnnorokomProjukti\backend\tests\AssignmentHub.IntegrationTests\bin\Debug\net8
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.IntegrationTests\bin\Debug\net8.0\refs\System.Xml.XPath.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.IntegrationTests\bin\Debug\net8.0\refs\System.Xml.XPath.XDocument.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.IntegrationTests\bin\Debug\net8.0\refs\WindowsBase.dll
-E:\OnnorokomProjukti\backend\tests\AssignmentHub.IntegrationTests\bin\Debug\net8.0\AspNetCoreRateLimit.dll
-E:\OnnorokomProjukti\backend\tests\AssignmentHub.IntegrationTests\bin\Debug\net8.0\AutoMapper.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.IntegrationTests\bin\Debug\net8.0\FluentAssertions.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.IntegrationTests\bin\Debug\net8.0\FluentValidation.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.IntegrationTests\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
@@ -489,3 +487,7 @@ E:\OnnorokomProjukti\backend\tests\AssignmentHub.IntegrationTests\obj\Debug\net8
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.IntegrationTests\obj\Debug\net8.0\AssignmentHub.IntegrationTests.pdb
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.IntegrationTests\obj\Debug\net8.0\AssignmentHub.IntegrationTests.genruntimeconfig.cache
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.IntegrationTests\obj\Debug\net8.0\ref\AssignmentHub.IntegrationTests.dll
+E:\OnnorokomProjukti\backend\tests\AssignmentHub.IntegrationTests\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.HealthChecks.dll
+E:\OnnorokomProjukti\backend\tests\AssignmentHub.IntegrationTests\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+E:\OnnorokomProjukti\backend\tests\AssignmentHub.IntegrationTests\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore.dll
+E:\OnnorokomProjukti\backend\tests\AssignmentHub.IntegrationTests\obj\Debug\net8.0\AssignmentHub.IntegrationTests.sourcelink.json

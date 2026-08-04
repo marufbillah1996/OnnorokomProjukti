@@ -13,8 +13,6 @@ E:\OnnorokomProjukti\backend\tests\AssignmentHub.ArchitectureTests\bin\Debug\net
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.ArchitectureTests\bin\Debug\net8.0\AssignmentHub.ArchitectureTests.runtimeconfig.json
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.ArchitectureTests\bin\Debug\net8.0\AssignmentHub.ArchitectureTests.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.ArchitectureTests\bin\Debug\net8.0\AssignmentHub.ArchitectureTests.pdb
-E:\OnnorokomProjukti\backend\tests\AssignmentHub.ArchitectureTests\bin\Debug\net8.0\AspNetCoreRateLimit.dll
-E:\OnnorokomProjukti\backend\tests\AssignmentHub.ArchitectureTests\bin\Debug\net8.0\AutoMapper.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.ArchitectureTests\bin\Debug\net8.0\FluentAssertions.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.ArchitectureTests\bin\Debug\net8.0\FluentValidation.dll
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.ArchitectureTests\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
@@ -169,3 +167,7 @@ E:\OnnorokomProjukti\backend\tests\AssignmentHub.ArchitectureTests\obj\Debug\net
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.ArchitectureTests\obj\Debug\net8.0\AssignmentHub.ArchitectureTests.pdb
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.ArchitectureTests\obj\Debug\net8.0\AssignmentHub.ArchitectureTests.genruntimeconfig.cache
 E:\OnnorokomProjukti\backend\tests\AssignmentHub.ArchitectureTests\obj\Debug\net8.0\ref\AssignmentHub.ArchitectureTests.dll
+E:\OnnorokomProjukti\backend\tests\AssignmentHub.ArchitectureTests\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.HealthChecks.dll
+E:\OnnorokomProjukti\backend\tests\AssignmentHub.ArchitectureTests\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+E:\OnnorokomProjukti\backend\tests\AssignmentHub.ArchitectureTests\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore.dll
+E:\OnnorokomProjukti\backend\tests\AssignmentHub.ArchitectureTests\obj\Debug\net8.0\AssignmentHub.ArchitectureTests.sourcelink.json

@@ -1,0 +1,25 @@
+# ---- Secrets / environment ----
+.env
+.env.local
+.env.*.local
+
+# ---- .NET ----
+backend/**/bin/
+backend/**/obj/
+backend/**/TestResults/
+backend/**/logs/
+*.user
+
+# ---- Node / Next.js ----
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/coverage/
+frontend/next-env.d.ts
+
+# ---- Editors / OS ----
+.vs/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

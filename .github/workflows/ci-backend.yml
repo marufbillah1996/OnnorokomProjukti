@@ -1,0 +1,49 @@
+name: CI - Backend
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "backend/**"
+      - ".github/workflows/ci-backend.yml"
+  pull_request:
+    paths:
+      - "backend/**"
+      - ".github/workflows/ci-backend.yml"
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Restore
+        run: dotnet restore AssignmentHub.sln
+
+      - name: Build
+        run: dotnet build AssignmentHub.sln --no-restore --configuration Release
+
+      # Runs Unit, Architecture (NetArchTest layering rules — see
+      # tests/AssignmentHub.ArchitectureTests/LayerDependencyTests.cs), and Integration
+      # (SQLite in-memory, no external database service needed here) test projects together.
+      - name: Test
+        run: >
+          dotnet test AssignmentHub.sln
+          --no-build
+          --configuration Release
+          --logger "trx"
+          --results-directory TestResults
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-test-results
+          path: backend/TestResults

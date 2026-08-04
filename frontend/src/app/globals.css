@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+
+  /*
+   * Palette lineage: sampled from DocsAndPlan/education-theme's most-used accent colors
+   * (#2196f3 blue, #009688 teal, #FFA000 amber) — used only as a visual-language reference per
+   * IMPLEMENTATION_PLAN.md section 2, not as literal theme CSS. Refined into a slightly deeper,
+   * more "productivity app" register than the marketing theme's brighter Material palette.
+   */
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-500: #2563eb;
+  --color-brand-600: #1d4ed8;
+  --color-brand-700: #1e40af;
+
+  --color-accent-500: #0d9488;
+  --color-accent-600: #0f766e;
+
+  --color-warning-500: #d97706;
+  --color-danger-500: #dc2626;
+  --color-success-500: #16a34a;
+
+  --color-surface: #ffffff;
+  --color-surface-muted: #f1f5f9;
+  --color-border: #e2e8f0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --color-brand-50: var(--color-brand-50);
+  --color-brand-100: var(--color-brand-100);
+  --color-brand-500: var(--color-brand-500);
+  --color-brand-600: var(--color-brand-600);
+  --color-brand-700: var(--color-brand-700);
+  --color-accent-500: var(--color-accent-500);
+  --color-accent-600: var(--color-accent-600);
+  --color-warning-500: var(--color-warning-500);
+  --color-danger-500: var(--color-danger-500);
+  --color-success-500: var(--color-success-500);
+  --color-surface: var(--color-surface);
+  --color-surface-muted: var(--color-surface-muted);
+  --color-border: var(--color-border);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0b1220;
+    --foreground: #e2e8f0;
+    --color-surface: #111827;
+    --color-surface-muted: #1f2937;
+    --color-border: #1f2937;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
