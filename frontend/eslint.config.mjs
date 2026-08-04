@@ -50,6 +50,20 @@ const eslintConfig = defineConfig([
             },
             // "shared" has no rule here, which is intentional: the "default: disallow" above
             // already blocks shared/** from importing features/** or app/**.
+
+            // Deliberate, narrow exceptions (see IMPLEMENTATION_PLAN.md section 4 and the
+            // per-feature build specs): duplicating another feature's list-fetch would be worse
+            // than these two explicit, one-directional cross-feature dependencies.
+            //   academics -> users:       Teacher/Student pickers for teacher-assignment & enrollment
+            //   assignments -> academics: ClassSubject picker when creating an assignment
+            {
+              from: { element: { type: "features", captured: { feature: "academics" } } },
+              allow: { to: { element: { type: "features", captured: { feature: "users" } } } },
+            },
+            {
+              from: { element: { type: "features", captured: { feature: "assignments" } } },
+              allow: { to: { element: { type: "features", captured: { feature: "academics" } } } },
+            },
           ],
         },
       ],

@@ -29,4 +29,11 @@
     <ProjectReference Include="..\..\src\AssignmentHub.Application\AssignmentHub.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <!-- Needed for direct use of ASP.NET Core shared-framework types in test setup code
+         (e.g. Microsoft.AspNetCore.RateLimiting.AddRateLimiter) beyond what flows in via the
+         Microsoft.AspNetCore.Mvc.Testing package alone. -->
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
 </Project>

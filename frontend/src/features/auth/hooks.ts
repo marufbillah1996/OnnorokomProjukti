@@ -29,6 +29,7 @@ export function useLogout() {
       // A full navigation (not router.push) is intentional here, for the same reason as
       // api-client.ts's own 401 handler: it guarantees the React Query cache is dropped along
       // with the session, rather than leaving stale "authenticated" data in memory.
+      // eslint-disable-next-line @next/next/no-location-assign-relative-destination
       window.location.href = "/login";
     },
   });

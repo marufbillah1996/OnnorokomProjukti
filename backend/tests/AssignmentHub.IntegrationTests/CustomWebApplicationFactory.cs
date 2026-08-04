@@ -2,13 +2,13 @@ using AssignmentHub.Api.Extensions;
 using AssignmentHub.Application.Common.Interfaces;
 using AssignmentHub.Infrastructure.Persistence;
 using AssignmentHub.Infrastructure.Persistence.Seed;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System.Threading.RateLimiting;
@@ -37,19 +37,35 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>, IAsyn
         // (see InitializeAsync below) using SQLite-native schema creation instead.
         builder.UseEnvironment("Testing");
 
-        builder.ConfigureAppConfiguration((_, config) =>
+        // IMPORTANT: builder.ConfigureAppConfiguration(...) callbacks registered via
+        // WebApplicationFactory are NOT applied until Program.cs's own `builder.Build()` call
+        // runs — by which point Program.cs's `AddJwtAuthentication(builder.Configuration)` has
+        // ALREADY read "Jwt:Secret" synchronously and baked it into the JWT bearer handler's
+        // TokenValidationParameters.IssuerSigningKey. This is a well-known limitation of testing
+        // WebApplicationBuilder-style minimal hosting apps via WebApplicationFactory (see
+        // https://github.com/dotnet/aspnetcore/issues/37680), and was confirmed empirically
+        // against this exact package version (Microsoft.AspNetCore.Mvc.Testing 8.0.29) while
+        // building this factory: a plain ConfigureAppConfiguration override here is visible to
+        // later request-time IConfiguration reads (e.g. JwtTokenGenerator, which resolves
+        // IConfiguration live per call) but NOT to the already-baked validation key — since the
+        // checked-in appsettings.json ships an EMPTY "Jwt:Secret", that split would mean every
+        // login *issues* a token signed with our test secret while the bearer handler still
+        // *validates* against the empty one, so every authenticated request would 401 on a
+        // signature mismatch. builder.UseSetting(...) seeds values during host construction —
+        // early enough that both the startup-time read and every later live read see the same
+        // value.
+        var testSettings = new Dictionary<string, string?>
         {
-            // AddJwtAuthentication throws InvalidOperationException if "Jwt:Secret" is missing,
-            // and there is no appsettings.Testing.json in this test host — supply the minimum
-            // configuration the real pipeline needs directly.
-            config.AddInMemoryCollection(new Dictionary<string, string?>
-            {
-                ["Jwt:Secret"] = "integration-test-signing-secret-please-ignore-32chars",
-                ["Jwt:Issuer"] = "AssignmentHub",
-                ["Jwt:Audience"] = "AssignmentHub.Client",
-                ["Cors:AllowedOrigins:0"] = "http://localhost:3000"
-            });
-        });
+            ["Jwt:Secret"] = "integration-test-signing-secret-please-ignore-32chars",
+            ["Jwt:Issuer"] = "AssignmentHub",
+            ["Jwt:Audience"] = "AssignmentHub.Client",
+            ["Cors:AllowedOrigins:0"] = "http://localhost:3000"
+        };
+
+        foreach (var (key, value) in testSettings)
+        {
+            builder.UseSetting(key, value);
+        }
 
         builder.ConfigureServices(services =>
         {

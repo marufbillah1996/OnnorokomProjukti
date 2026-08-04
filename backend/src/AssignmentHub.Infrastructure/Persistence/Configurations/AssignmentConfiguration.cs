@@ -22,13 +22,9 @@ public class AssignmentConfiguration : IEntityTypeConfiguration<Assignment>
             .HasForeignKey(s => s.AssignmentId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // PostgreSQL has no native SQL-Server-style ROWVERSION column; the idiomatic equivalent
-        // is the system "xmin" column, mapped here as a shadow row-version property so EF Core
-        // detects concurrent edits without an extra maintained column on the entity itself.
-        builder.Property<uint>("xmin")
-            .HasColumnName("xmin")
-            .HasColumnType("xid")
-            .ValueGeneratedOnAddOrUpdate()
-            .IsRowVersion();
+        // The Postgres-native "xmin" optimistic concurrency token is configured conditionally in
+        // AppDbContext.OnModelCreating (only when the active provider is Npgsql), not here — it's
+        // real Postgres system-column behavior with no SQLite equivalent, and this configuration
+        // class also runs against the SQLite in-memory provider used by the integration test host.
     }
 }

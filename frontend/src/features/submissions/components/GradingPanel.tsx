@@ -64,7 +64,7 @@ export function GradingPanel({ submission }: GradingPanelProps) {
           min={0}
           max={submission.maxMarks}
           error={errors.marksAwarded?.message}
-          {...register("marksAwarded")}
+          {...register("marksAwarded", { valueAsNumber: true })}
         />
         <Textarea
           label="Feedback (optional)"

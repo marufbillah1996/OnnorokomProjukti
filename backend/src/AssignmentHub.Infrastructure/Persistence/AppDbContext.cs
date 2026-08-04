@@ -38,6 +38,20 @@ public class AppDbContext : DbContext, IUnitOfWork
 
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
 
+        // Postgres-native optimistic concurrency token for Assignment (see
+        // Configurations/AssignmentConfiguration.cs) — gated to the Npgsql provider only, since
+        // "xmin" is a real Postgres system column with no SQLite equivalent, and the integration
+        // test host runs this same model against a SQLite in-memory database.
+        if (Database.IsNpgsql())
+        {
+            modelBuilder.Entity<Assignment>()
+                .Property<uint>("xmin")
+                .HasColumnName("xmin")
+                .HasColumnType("xid")
+                .ValueGeneratedOnAddOrUpdate()
+                .IsRowVersion();
+        }
+
         // Every entity implementing ISoftDelete is transparently filtered wherever it's queried
         // (Query()/GetByIdAsync in every repository) — Application-layer code never has to
         // remember to add "!x.IsDeleted" itself. Explicit .IgnoreQueryFilters() opts back in
