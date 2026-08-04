@@ -1,0 +1,66 @@
+-
+  var testiData = [
+    {
+      text: 'Taking this course will help me to learn and study this SAP ERP system Training and also to implement it.',
+      name: 'John Doe',
+      title: 'Chief Digital Officer'
+    },
+    {
+      text: 'It is a great app. Although it seems one can\'t get a certification after accessing the 24hours unlocked Courses even after watching, notwithstanding it great and there always took for improvement.',
+      name: 'Jean Doe',
+      title: 'Chief Digital Officer'
+    },
+    {
+      text: 'This has been the best app to continue learning and improving. If I had known about this app when I was working full time I could have been a supervisor.',
+      name: 'Jena Doe',
+      title: 'Graphic Designer'
+    },
+    {
+      text: 'This is a hub of all the required learnings for a corporate employee. It not only includes the corporate skill related courses but also the skills of personal development.',
+      name: 'Jovelin Doe',
+      title: 'Senior Graphic Designer'
+    },
+    {
+      text: 'Variety of curses on same topics so you can learn with comparisons so I will say it\'s a great choice to make.',
+      name: 'Jihan Doe',
+      title: 'CEO Software House'
+    },
+    {
+      text: 'Great video. Simplicity and effectiveness was so adaptly exhibited.',
+      name: 'Jovelin Doe',
+      title: 'Senior Graphic Designer'
+    }
+  ]
+
+
+include title.pug
+include cards/testimonial.pug
+
+.root
+  +title-main("center", $t.education_landing.testimonials_title, $t.education_landing.testimonials_desc, "primary")
+  .slider-wrap
+    .carousel
+      |
+      |
+      button.btn-floating.nav.prev.waves-effect#prev_testi
+        |
+        |
+        i.ion-ios-arrow-back
+        |
+        |
+      |
+      |
+      .slick-carousel#testimonial_carousel
+        each item in testiData
+          .item
+            +testi-card(item.name, item.title, item.text)
+      |
+      |
+      button.btn-floating.nav.next.waves-effect#next_testi
+        |
+        |
+        i.ion-ios-arrow-forward
+        |
+        |
+      |
+      |

@@ -1,0 +1,83 @@
+include title.pug
+include cards/general.pug
+
+-
+  var courseData = [
+    {
+      img: imgAPI.education[9],
+      title: 'Instant Kendo UI Mobile',
+      rating: 5,
+      price: 50,
+      desc: 'Filled with practical, step-by-step instructions and clear explanations for the most important and useful tasks.'
+    },
+    {
+      img: imgAPI.education[5],
+      title: 'Joy of Cooking in the House',
+      rating: 4,
+      price: 10,
+      desc: 'The famously irreverent chef also offers playful riffs on classics, reimagining tuna-and-rice bowls.'
+    },
+    {
+      img: imgAPI.education[3],
+      title: 'Face the Music: A Life Exposed',
+      rating: 5,
+      price: 50,
+      desc: 'Face the Music is the shocking inspirational story of one of rock’s most enduring icons.'
+    },
+    {
+      img: imgAPI.education[4],
+      title: 'Metaverse For Beginners',
+      rating: 3,
+      price: 25,
+      desc: 'When people talk about the future, they usually mean virtual reality.'
+    },
+    {
+      img: imgAPI.education[8],
+      title: 'Practical Ethics in Sport Management',
+      rating: 5,
+      price: 50,
+      desc: 'Leaders and managers throughout the sporting world face many ethical challenges on a daily basis.'
+    },
+    {
+      img: imgAPI.education[2],
+      title: 'Economic Geography: Past Present Future',
+      rating: 5,
+      price: 40,
+      desc: 'The impact of economic geography both within the field of geography.'
+    }
+  ]
+
+.root
+  .parallax-wrap
+    include parallax/dot.pug
+  .container
+    .floating-title
+      +title-main("left", $t.education_landing.popular_title, $t.education_landing.popular_desc, "primary", true)
+  .slider-wrap
+    .carousel
+      .slick-carousel#course_carousel(data-length=courseData.length)
+        .props.item-props-first.show-md-up
+          div
+        each item in courseData
+          .item
+            +general-card(item.img, item.title, item.desc, item.rating, item.price)
+        .props.item-props-last.show-md-up
+          div
+      |
+      |
+      button.btn-floating.nav.prev.waves-effect#prev_project
+        |
+        |
+        i.ion-ios-arrow-back
+        |
+        |
+      |
+      |
+      button.btn-floating.nav.next.waves-effect#next_project
+        |
+        |
+        i.ion-ios-arrow-forward
+        |
+        |
+      |
+      |

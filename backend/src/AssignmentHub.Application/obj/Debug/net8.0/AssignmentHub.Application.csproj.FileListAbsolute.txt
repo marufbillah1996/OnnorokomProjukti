@@ -1,0 +1,15 @@
+E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\bin\Debug\net8.0\AssignmentHub.Application.deps.json
+E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\bin\Debug\net8.0\AssignmentHub.Application.dll
+E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\bin\Debug\net8.0\AssignmentHub.Application.pdb
+E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\bin\Debug\net8.0\AssignmentHub.Domain.dll
+E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\bin\Debug\net8.0\AssignmentHub.Domain.pdb
+E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\obj\Debug\net8.0\AssignmentHub.Application.csproj.AssemblyReference.cache
+E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\obj\Debug\net8.0\AssignmentHub.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\obj\Debug\net8.0\AssignmentHub.Application.AssemblyInfoInputs.cache
+E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\obj\Debug\net8.0\AssignmentHub.Application.AssemblyInfo.cs
+E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\obj\Debug\net8.0\AssignmentHub.Application.csproj.CoreCompileInputs.cache
+E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\obj\Debug\net8.0\Assignme.660ACA74.Up2Date
+E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\obj\Debug\net8.0\AssignmentHub.Application.dll
+E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\obj\Debug\net8.0\refint\AssignmentHub.Application.dll
+E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\obj\Debug\net8.0\AssignmentHub.Application.pdb
+E:\OnnorokomProjukti\backend\src\AssignmentHub.Application\obj\Debug\net8.0\ref\AssignmentHub.Application.dll
