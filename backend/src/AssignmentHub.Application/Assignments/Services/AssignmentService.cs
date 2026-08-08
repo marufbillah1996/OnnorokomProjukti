@@ -131,16 +131,15 @@ public class AssignmentService : IAssignmentService
 
     public async Task<AssignmentDto> PublishAsync(Guid id, CancellationToken cancellationToken = default)
     {
-        var assignment = await _assignmentRepository.Query()
-            .Include(a => a.ClassSubject)
-            .FirstOrDefaultAsync(a => a.Id == id, cancellationToken)
+        var assignment = await _assignmentRepository.GetByIdAsync(id, cancellationToken)
             ?? throw new KeyNotFoundException($"Assignment '{id}' was not found.");
 
         assignment.Publish();
         _assignmentRepository.Update(assignment);
         await _unitOfWork.SaveChangesAsync(cancellationToken);
 
-        var studentIds = await _studentClassRepository.GetStudentIdsForClassAsync(assignment.ClassSubject!.ClassId, cancellationToken);
+        var classSubject = await _classSubjectRepository.GetByIdAsync(assignment.ClassSubjectId, cancellationToken);
+        var studentIds = await _studentClassRepository.GetStudentIdsForClassAsync(classSubject!.ClassId, cancellationToken);
 
         var payload = JsonSerializer.Serialize(new { assignmentId = assignment.Id, title = assignment.Title });
 
