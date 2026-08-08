@@ -23,3 +23,6 @@ frontend/next-env.d.ts
 .idea/
 .DS_Store
 Thumbs.db
+
+# ---- Personal / local-only notes (not part of the deliverable) ----
+DocsAndPlan/AssignmentHub-Interview-Study-Guide.pdf
