@@ -13,7 +13,7 @@ export function Header({ title, userName, onLogout, actions }: HeaderProps) {
       <h1 className="text-lg font-semibold text-foreground">{title}</h1>
       <div className="flex items-center gap-4">
         {actions}
-        <span className="text-sm text-foreground/70">{userName}</span>
+        <span suppressHydrationWarning className="text-sm text-foreground/70">{userName}</span>
         <button
           type="button"
           onClick={onLogout}

@@ -43,7 +43,14 @@ export function useNotificationSocket(): void {
     const connection = getNotificationsConnection();
 
     // A failed/optional realtime connection must never crash the app.
-    connection.start().catch(console.error);
+    if (connection.state === "Disconnected") {
+      connection.start().catch((err: Error) => {
+        if (err.message && err.message.includes("stopped during negotiation")) {
+          return; // Expected if StrictMode rapid-unmounts while connecting
+        }
+        console.error(err);
+      });
+    }
 
     const invalidate = () => {
       queryClient.invalidateQueries({ queryKey: ["notifications"] });
