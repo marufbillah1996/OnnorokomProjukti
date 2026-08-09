@@ -25,7 +25,16 @@ export function getNotificationsConnection(): HubConnection {
       accessTokenFactory: () => getAccessToken() ?? "",
     })
     .withAutomaticReconnect()
-    .configureLogging(LogLevel.Warning)
+    .configureLogging({
+      log: (logLevel: LogLevel, message: string) => {
+        if (message.includes("stopped during negotiation")) return;
+        if (logLevel === LogLevel.Error || logLevel === LogLevel.Critical) {
+          console.error(`[SignalR] ${message}`);
+        } else if (logLevel === LogLevel.Warning) {
+          console.warn(`[SignalR] ${message}`);
+        }
+      }
+    })
     .build();
 
   return connection;
@@ -33,7 +42,8 @@ export function getNotificationsConnection(): HubConnection {
 
 export async function stopNotificationsConnection(): Promise<void> {
   if (connection) {
-    await connection.stop();
+    const conn = connection;
     connection = null;
+    await conn.stop();
   }
 }
